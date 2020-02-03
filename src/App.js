@@ -1,23 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import useFitText from './useFitText';
 import './App.css';
 
 function App() {
+  const [ref] = useFitText(1.776);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="Heading-wrapper">
+          <h1 ref={ref}>
+            Lorem ipsum dolor sit, conse ctetur adipiscing elit ut aliquam.
+          </h1>
+        </div>
       </header>
     </div>
   );
