@@ -4,22 +4,36 @@
   text-align: center;
 }
 
-.App-header {
-  min-height: 100vh;
+.App-header,
+.App-main {
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.Heading-wrapper {
-  width: 51.8%;
+.Header-heading-wrapper {
+  width: 38.33%;
 }
 
-.Heading-wrapper h1 {
+h1,
+h2 {
   font-family: 'Libre Baskerville', serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 2.625rem;
   line-height: 124%;
+}
+
+.Header-heading-wrapper h1 {
+  font-size: 3.215rem;
+
+}
+
+.Main-heading-wrapper {
+  width: 51.8%;
+}
+
+.Header-heading-wrapper h2 {
+  font-size: 2.625rem;
 }
