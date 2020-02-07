@@ -1,35 +1,45 @@
 import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const useFitText = (kompressor, minSize, maxSize) => {
-  const ref = useRef(null);
-  const compressor = kompressor || 1;
+const useFitText = (
+  compressor = 1,
+  minFontSize = Number.NEGATIVE_INFINITY,
+  maxFontSize = Number.POSITIVE_INFINITY
+) => {
+  // create an array of refs
+  const refs = useRef([]);
+  const addToRefs = el => {
+    if (el && !refs.current.includes(el)) {
+      refs.current.push(el);
+    }
+  };
 
   useEffect(() => {
-    const minFontSize = minSize || Number.NEGATIVE_INFINITY;
-    const maxFontSize = maxSize || Number.POSITIVE_INFINITY;
     const fit = () => {
-      const size = Math.max(
-        Math.min(
-          ref.current.clientWidth / (compressor * 10),
-          parseFloat(maxFontSize)
-        ),
-        parseFloat(minFontSize)
+      refs.current.map(
+        node =>
+          (node.style.fontSize =
+            Math.max(
+              Math.min(
+                node.clientWidth / (compressor * 10),
+                parseFloat(maxFontSize)
+              ),
+              parseFloat(minFontSize)
+            ) + 'px')
       );
-      ref.current.style.fontSize = `${size}px`;
     };
     fit();
     window.addEventListener('resize', fit);
     return () => window.removeEventListener('resize', fit);
-  }, [ref, compressor, minSize, maxSize]);
+  }, [refs, compressor, minFontSize, maxFontSize]);
 
-  return [ref];
+  return addToRefs;
 };
 
 useFitText.propTypes = {
-  kompressor: PropTypes.number,
-  minSize: PropTypes.number,
-  maxSize: PropTypes.number
+  compressor: PropTypes.number,
+  minFontSize: PropTypes.number,
+  maxFontSize: PropTypes.number
 };
 
 export default useFitText;
