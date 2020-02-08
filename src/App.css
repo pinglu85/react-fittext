@@ -25,15 +25,14 @@ h2 {
   line-height: 124%;
 }
 
-.Header-heading-wrapper h1 {
+.Header-heading {
   font-size: 3.215rem;
-
 }
 
 .Main-heading-wrapper {
   width: 51.8%;
 }
 
-.Header-heading-wrapper h2 {
+.Main-heading {
   font-size: 2.625rem;
 }
