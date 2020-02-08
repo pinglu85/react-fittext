@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const ReactFitText = ({
@@ -9,7 +9,7 @@ const ReactFitText = ({
   children
 }) => {
   const ref = useRef(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     // turn children into an array
     const children = [].slice.call(ref.current.children);
 

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const useFitText = (
@@ -14,7 +14,7 @@ const useFitText = (
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fit = () => {
       refs.current.map(
         node =>
