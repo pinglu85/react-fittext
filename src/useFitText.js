@@ -16,7 +16,7 @@ const useFitText = (
 
   useLayoutEffect(() => {
     const fit = () => {
-      refs.current.map(
+      refs.current.forEach(
         node =>
           (node.style.fontSize =
             Math.max(

@@ -14,7 +14,7 @@ const ReactFitText = ({
     const children = [].slice.call(ref.current.children);
 
     const fit = () => {
-      children.map(
+      children.forEach(
         child =>
           (child.style.fontSize =
             Math.max(
